@@ -268,29 +268,59 @@
       </thead>
       <tbody>
         <tr>
-          <td>닉네임</td>
+          <td>닉네임, 프로필 강아지</td>
           <td><span class="pill del">즉시 삭제</span></td>
-          <td>랭킹에 표시되던 이름</td>
+          <td>랭킹에 보이던 이름과 그림</td>
         </tr>
         <tr>
-          <td>랭킹 점수</td>
+          <td>오늘·누적 점수, 코인 잔액, 최고 레벨</td>
           <td><span class="pill del">즉시 삭제</span></td>
-          <td>오늘의 점수 및 순위 기록</td>
+          <td>서버에 있던 계정 정보</td>
+        </tr>
+        <tr>
+          <td>같이하기 기록</td>
+          <td><span class="pill del">즉시 삭제</span></td>
+          <td>본인의 순위·시간 기록. 판 자체의 기록은 90일 뒤 자동 삭제됩니다.</td>
         </tr>
         <tr>
           <td>익명 계정 식별자</td>
-          <td><span class="pill del">즉시 삭제</span></td>
-          <td>랭킹 참여를 위해 자동 생성된 ID (이메일·전화번호 등 개인정보 없음)</td>
+          <td><span class="pill del">하루 안에 삭제</span></td>
+          <td>정보가 지워진 계정은 하루 한 번 도는 정리 작업이 지웁니다. 이메일·전화번호 같은 개인정보는 들어 있지 않습니다.</td>
+        </tr>
+        <tr>
+          <td>날짜별 랭킹·보상 지급 기록</td>
+          <td><span class="pill keep">연결 끊고 보관</span></td>
+          <td>누구의 점수인지 알 수 없게 된 점수만 지난 날짜 랭킹 집계에 남습니다.</td>
+        </tr>
+        <tr>
+          <td>게임 이용 기록</td>
+          <td><span class="pill keep">연결 끊고 30일 뒤 삭제</span></td>
+          <td>모든 이용 기록은 30일 뒤 지우고 날짜별 합계만 남깁니다.</td>
+        </tr>
+        <tr>
+          <td>서버의 결제 기록</td>
+          <td><span class="pill keep">연결 끊고 보관</span></td>
+          <td>매출 확인을 위해 누구의 결제인지 알 수 없는 상태로 남습니다. 카드 정보는 처음부터 받지 않습니다. 스토어도 각 정책에 따라 보관합니다.</td>
+        </tr>
+        <tr>
+          <td>광고성 정보 알림의 기기 토큰</td>
+          <td><span class="pill keep">알림을 끌 때 삭제</span></td>
+          <td>랭킹 데이터 삭제와 따로 처리됩니다. 앱 설정에서 「광고성 정보 알림」을 끄면 즉시 지웁니다.</td>
+        </tr>
+        <tr>
+          <td>알림을 눌러 연 기록</td>
+          <td><span class="pill keep">180일 뒤 삭제</span></td>
+          <td>어떤 알림을 언제 열었는지만 남고, 누가 열었는지는 기록하지 않습니다.</td>
+        </tr>
+        <tr>
+          <td>오류 보고</td>
+          <td><span class="pill keep">90일 뒤 삭제</span></td>
+          <td>Firebase Crashlytics가 보관합니다. 닉네임이나 계정 식별자는 붙이지 않습니다.</td>
         </tr>
         <tr>
           <td>게임 진행 상황</td>
           <td><span class="pill keep">기기에만 보관</span></td>
-          <td>레벨·코인·기록은 서버에 올라가지 않습니다. 앱을 삭제하면 함께 사라집니다.</td>
-        </tr>
-        <tr>
-          <td>구매 내역</td>
-          <td><span class="pill keep">스토어 보관</span></td>
-          <td>결제는 Google Play·App Store가 처리하며, 환불·세무 목적으로 각 스토어 정책에 따라 보관됩니다. 개발자는 결제 정보를 저장하지 않습니다.</td>
+          <td>레벨·코인·진행 중인 판의 원본은 기기에 있고, 앱을 지우면 함께 사라집니다.</td>
         </tr>
         <tr>
           <td>광고 식별자</td>
@@ -328,16 +358,21 @@
       and your in-game nickname. We will delete your data and reply within 7 business days.
     </p>
     <p>
-      <strong>Deleted:</strong> nickname, ranking score, and the anonymous account identifier.
-      <strong>Not stored on our servers:</strong> game progress (level, coins, records) stays on your
-      device only. Purchase records are retained by Google Play / the App Store under their own
-      policies. Advertising identifiers are handled by Google AdMob and can be reset in your device settings.
+      <strong>Deleted immediately:</strong> nickname, profile dog, today and total scores, coin balance mirror,
+      highest level, and your multiplayer results. The anonymous account identifier is removed within a day.
+      <strong>Kept without a link to you:</strong> past daily ranking scores, purchase records for revenue
+      reporting, and usage events (removed after 30 days, only daily totals remain).
+      <strong>Handled separately:</strong> the push notification token is deleted when you turn off
+      “Promotional alerts” in Settings. Notification open records (which notification, when, no user) are kept
+      for 180 days. Crash reports are kept by Firebase Crashlytics for 90 days.
+      Game progress stays on your device. Advertising identifiers are handled by Google AdMob and can be reset
+      in your device settings.
     </p>
     <p><strong>Backup retention:</strong> copies remaining in system backups are fully removed within 30 days.</p>
   </div>
 
   <footer>
-    DogPuzzle · 개발자 YEONGUK KIM · 최종 수정 2026년 8월<br>
+    DogPuzzle · 개발자 YEONGUK KIM · 최종 수정 2026년 10월 5일<br>
     <a href="https://privacy.koinoroom.com/">개인정보처리방침 보기</a>
   </footer>
 
